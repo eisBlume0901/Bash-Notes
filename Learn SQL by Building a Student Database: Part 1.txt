@@ -1,0 +1,72 @@
+Learn SQL by Building a Student Database: Part 1
+MySQL
+To truncate (delete the entries inside the table not the table itself) of one table
+TRUNCATE tableName;
+
+To truncate (delete the entries inside the table not the table itself) of three table
+TRUNCATE table1Name, table2Name, table3Name;
+sample
+TRUNCATE courses, majors_courses
+TRUNCATE majors, majors_courses, students
+
+To truncate any tables that use column from it as a foreign key at the same time
+TRUNCATE normalTable, hadForeignKeyWithNormalTable;
+
+BASH
+To save the 
+pg_dump --clean --create --inserts --username=freecodecamp students > students.sql
+
+To check the files inside the project folder, use list command
+ls 
+
+To delete file inside the project folder
+rm students_test.csv
+To create a new file in Bash
+touch insert_data.sh 
+
+To grant permissions of the created file
+chmod + x (for permission purposes)
+
+To copy a file and then rename it to new file name
+cp courses.csv courses_test.csv
+
+To execute the comands declared inside the bash file
+./insert_data.sh
+
+Open the file created and add this comment
+#!bin/bash
+
+To access the external file (with different type from csv)
+cat courses.csv 
+
+It opens the file, while loops with a delimiter of comma and store the text being read in the variable MAJOR and COURSE, the echo is responsible for printing or displaying the retrieved values
+
+cat courses.csv | while IFS="," read MAJOR COURSE
+do
+  echo $MAJOR $COURSE
+done
+
+Store the PSQL connection to a variable
+PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"
+-X prevents something to read which is the psql from reading the .psqlrc file at the startup
+-no align means that the output is plain text and designed for easy reading in a console or file
+-tuples-only instructs psql to only output tuples (rows), not the regular output headers or footers
+-c means to run a single command or query then exit
+cat courses.csv | while IFS="," read MAJOR COURSE
+do
+  # get major_id
+  MAJOR_ID=$($PSQL "SELECT major_id FROM majors WHERE major ='$MAJOR'")
+  echo $MAJOR_ID
+  # if not found 
+  if [[ -z $MAJOR_ID ]]
+  then
+  # insert major 
+  INSERT_MAJOR_RESULT=$($PSQL "INSERT INTO majors(major) VALUES ('$MAJOR')")
+  # get new major_id
+  fi
+  # get course_id
+  # if not found
+  # insert course
+  # get new course_id
+  # insert into majors_courses
+done
