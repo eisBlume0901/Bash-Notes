@@ -343,3 +343,38 @@ then
 else
   echo $TEXT O:$NUMBER
 fi
+
+To create an array, enclosed them with parentheses and separate the values with space
+ARR=("apple" "orange" "banana")
+
+To access the element inside an array
+echo ${ARR[1]}
+returns: 
+orange
+
+To display the array
+echo ${ARR[*]} / echo ${ARR[@]}
+
+To display the attributes and value of the variable ARR
+declare -p ARR
+returns: 
+declare -a ARR=([0]="apple" [1]="orange" [2]="banana")
+
+
+help function
+function: function name { COMMANDS ; } or name () { COMMANDS ; }
+    Define shell function.
+    
+    Create a shell function named NAME.  When invoked as a simple command,
+    NAME runs COMMANDs in the calling shell's context.  When NAME is invoked,
+    the arguments are passed to the function as $1...$n, and the function's
+    name is in $FUNCNAME.
+    
+    Exit Status:
+    Returns success unless NAME is readonly.
+
+To create a function inside .sh / bash file
+FUNCTION_NAME() {}
+
+To call a function inside .sh / bash file
+FUNCTION_NAME() {}
