@@ -1,1 +1,3 @@
+For debugging purposes / showing if the bash reads the SQL commands
 
+echo "$($PSQL "<query here>")"
