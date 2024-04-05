@@ -9,9 +9,12 @@ Pattern matching syntax
 _ - underscore represents any letter
 % - percentage represents zero or more characters
 
-Example
+Example:
 
 _lgorithms could match Algorithms
 %lgorithms could match Algorithms and Data Structures and Algorithms
 
 _e% could match Web Development
+
+% % could match Web Development, Data Structures and Algorithms (courses that have spaces)
+
