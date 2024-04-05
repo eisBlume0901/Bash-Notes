@@ -1,3 +1,17 @@
+BASH
 For debugging purposes / showing if the bash reads the SQL commands
 
 echo "$($PSQL "<query here>")"
+
+SQL
+Pattern matching syntax
+
+_ - underscore represents any letter
+% - percentage represents zero or more characters
+
+Example
+
+_lgorithms could match Algorithms
+%lgorithms could match Algorithms and Data Structures and Algorithms
+
+_e% could match Web Development
