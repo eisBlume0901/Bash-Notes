@@ -16,7 +16,7 @@ _lgorithms could match Algorithms
 
 _e% could match Web Development
 
-% % could match Web Development, Data Structures and Algorithms (courses that have spaces
+% % could match Web Development, Data Structures and Algorithms (courses that have spaces)
 
 Keywords:
 ORDER BY <column_1>, <column_2>. Any matching values in the first ordered column will then be ordered by the next. 
